@@ -10,6 +10,7 @@ const Footer = () => {
             className={styles.linkTextPrimary}
             href="https://mofodox.com"
             target={"_blank"}
+            rel={"noreferrer"}
           >
             Khairul Akmal
           </a>
