@@ -1,0 +1,13 @@
+.cardTransition {
+  transition: transform 0.5s;
+  z-index: 1;
+}
+
+.cardTransition:hover {
+  transform: scale(1.05);
+}
+
+.cardBg {
+  background-color: #302d85;
+  color: #ffce31;
+}

@@ -1,0 +1,13 @@
+.pokedexFooter {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.linkTextPrimary {
+  color: #ffce31;
+}
+
+.linkTextPrimary:hover {
+  color: #6a5615;
+}
