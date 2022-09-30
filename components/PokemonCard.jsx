@@ -13,12 +13,16 @@ const PokemonCard = ({ name, index }) => {
           className={`card ${styles.cardTransition} mb-4 ${styles.cardBg}`}
           key={index}
         >
-          <Image
-            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemonIndex}.png`}
-            width={250}
-            height={250}
-            layout={"responsive"}
-          />
+          <div>
+            <Image
+              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemonIndex}.png`}
+              width={150}
+              height={150}
+              layout={"responsive"}
+              priority={true}
+              alt={name}
+            />
+          </div>
           <div className="card-body">
             <div className="clearfix">
               <div className="float-start">
