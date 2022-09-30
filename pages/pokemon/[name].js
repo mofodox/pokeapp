@@ -5,8 +5,6 @@ import Layout from "../../components/Layout";
 import styles from "../../styles/Pokemon.module.css";
 
 const Pokemon = ({ currentPokemon }) => {
-  console.log(currentPokemon);
-
   const pokemonIndex = ("000" + currentPokemon.id).slice(-3);
 
   function capitalizeFirstLetter(string) {
@@ -26,7 +24,7 @@ const Pokemon = ({ currentPokemon }) => {
                 width={400}
                 height={400}
                 style={{ margin: "0 auto" }}
-                className
+                alt={currentPokemon.name}
               />
             </div>
             <div className="d-flex align-items-center justify-content-center">
@@ -40,15 +38,18 @@ const Pokemon = ({ currentPokemon }) => {
           <hr className="d-block d-sm-none" />
 
           <div className="col-lg-6 col-12">
-            <h3 className="fw-bold mb-1 mb-lg-4">Details</h3>
+            <h2 className="fw-bold mb-1 mb-lg-4 display-6">Details</h2>
 
             <div className="row">
               <div className="col-lg-6 col-12">
                 <div className="types mb-4 mt-5 mt-md-1">
-                  <h5 class="fw-bold mt-5 mt-lg-3 d-inline me-2">Type:</h5>
+                  <h5 className="fw-bold mt-5 mt-lg-3 d-inline me-2">Type:</h5>
                   {currentPokemon.types.map((type) => {
                     return (
-                      <span className="badge rounded-pill bg-light text-dark me-2">
+                      <span
+                        className="badge rounded-pill bg-light text-dark me-2"
+                        key={type.type.name}
+                      >
                         {type.type.name}
                       </span>
                     );
@@ -64,7 +65,10 @@ const Pokemon = ({ currentPokemon }) => {
                 <ul className="list-inline">
                   {currentPokemon.abilities.map((ability) => {
                     return (
-                      <li className="list-inline-item">
+                      <li
+                        className="list-inline-item"
+                        key={ability.ability.name}
+                      >
                         {ability.ability.name}
                       </li>
                     );
@@ -72,19 +76,19 @@ const Pokemon = ({ currentPokemon }) => {
                 </ul>
               </div>
               <div className="col-lg-6 col-12">
-                <h5 className="fw-bold">Base Stats</h5>
+                <h5 className="fw-bold">Base Stats:</h5>
                 {currentPokemon.stats.map((stat) => {
                   return (
-                    <div>
+                    <div key={stat.stat.name}>
                       <span className="text-capitalize">{`${stat.stat.name}`}</span>
-                      <div className="progress">
+                      <div className="progress h-75">
                         <div
                           className={`progress-bar ${styles.progressBarPrimary}`}
                           role="progressbar"
                           style={{ width: `${stat.base_stat}%` }}
-                          ariaValueNow={`${stat.base_stat}`}
-                          ariaValueMin="0"
-                          ariaValueMax="100"
+                          aria-valuenow={`${stat.base_stat}`}
+                          aria-valuemin="0"
+                          aria-valuemax="100"
                         >
                           {stat.base_stat}%
                         </div>
